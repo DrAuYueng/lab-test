@@ -22,6 +22,14 @@ public class KeyStoreTest {
 		char[] password = "changeit".toCharArray();
 		String filepath = System.getenv("JAVA_HOME") + "\\jre\\lib\\security\\cacerts";
 		String providerName = "";
+		// 获取JVM默认证书库的证书信息
+		KeyStoreTest.getKeyStoreInfo(filepath, keystoreType, password, providerName);
+
+		// 获取PkCS12格式的证书信息，即.pfx文件
+		keystoreType = "pkcs12";
+		password = "111111".toCharArray();
+		filepath = "D:\\test.pfx";
+		providerName = new Provider().getName();
 		KeyStoreTest.getKeyStoreInfo(filepath, keystoreType, password, providerName);
 
 	}
