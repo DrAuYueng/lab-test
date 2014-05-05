@@ -25,6 +25,11 @@ public class KeyStoreTest {
 			while (aliases.hasMoreElements()) {
 				String alias = aliases.nextElement();
 				System.out.println("alias:"+alias);
+				if(ks.isCertificateEntry(alias)){
+					System.out.println("certificateEntry alias:"+alias);
+					System.out.println("certificateEntry cert:"+ks.getCertificate(alias));
+					
+				}
 			}
 		} catch (KeyStoreException e) {
 			// TODO Auto-generated catch block
