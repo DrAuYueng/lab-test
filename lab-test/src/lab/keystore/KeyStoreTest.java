@@ -26,10 +26,17 @@ public class KeyStoreTest {
 		KeyStoreTest.getKeyStoreInfo(filepath, keystoreType, password, providerName);
 
 		// 获取PkCS12格式的证书信息，即.pfx文件
-		keystoreType = "pkcs12";
+//		keystoreType = "pkcs12";
+//		password = "111111".toCharArray();
+//		filepath = "D:\\test.pfx";
+//		providerName = new Provider().getName();
+//		KeyStoreTest.getKeyStoreInfo(filepath, keystoreType, password, providerName);
+		
+		// 获取PkCS12格式的证书信息，即.pfx文件
+		keystoreType = "jks";
 		password = "111111".toCharArray();
-		filepath = "D:\\test.pfx";
-		providerName = new Provider().getName();
+		filepath = "D:\\12306.jks";
+		//providerName = new Provider().getName();
 		KeyStoreTest.getKeyStoreInfo(filepath, keystoreType, password, providerName);
 
 	}
@@ -48,6 +55,7 @@ public class KeyStoreTest {
 			Enumeration<String> aliases = ks.aliases();
 			while (aliases.hasMoreElements()) {
 				String alias = aliases.nextElement();
+				
 				System.out.println("alias:" + alias);
 				if (ks.isCertificateEntry(alias)) {
 					System.out.println("certificateEntry alias:" + alias);
@@ -60,6 +68,8 @@ public class KeyStoreTest {
 					System.out.println("keyEntry key:" + ks.getKey(alias, password));
 				}
 			}
+			
+			
 		} catch (KeyStoreException e) {
 			// TODO Auto-generated catch block
 			e.printStackTrace();
