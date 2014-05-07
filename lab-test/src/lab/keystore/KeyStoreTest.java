@@ -34,11 +34,11 @@ public class KeyStoreTest {
 		// providerName);
 
 		// 获取PkCS12格式的证书信息，即.pfx文件
-		keystoreType = "jks";
-		password = "111111".toCharArray();
-		filepath = "D:\\12306.jks";
+//		keystoreType = "jks";
+//		password = "111111".toCharArray();
+//		filepath = "D:\\12306.jks";
 		// providerName = new Provider().getName();
-		KeyStoreTest.getKeyStoreInfo(filepath, keystoreType, password, providerName);
+		//KeyStoreTest.getKeyStoreInfo(filepath, keystoreType, password, providerName);
 
 	}
 
@@ -56,17 +56,10 @@ public class KeyStoreTest {
 			Enumeration<String> aliases = ks.aliases();
 			while (aliases.hasMoreElements()) {
 				String alias = aliases.nextElement();
-				if (!alias.equals("cmpay")) {
+				if (!alias.equals("12306")) {
 					continue;
 				}
-				Certificate[] certs = ks.getCertificateChain("cmpay");
-				System.out.println(certs);
-//				for (Certificate cert : certs) {
-//					if (cert instanceof X509Certificate) {
-//						X509Certificate x509Cert = (X509Certificate) cert;
-//						System.out.println(x509Cert);
-//					}
-//				}
+				
 				System.out.println("alias:" + alias);
 				if (ks.isCertificateEntry(alias)) {
 					System.out.println("certificateEntry alias:" + alias);
